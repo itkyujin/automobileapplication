@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AddCarComponent } from './components/add-car/add-car.component';
 import { EditCarComponent } from './components/edit-car/edit-car.component';
+import { CarsListComponent } from './components/cars-list/cars-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddCarComponent,
-    EditCarComponent
+    EditCarComponent,
+    CarsListComponent
   ],
   imports: [
     BrowserModule,
