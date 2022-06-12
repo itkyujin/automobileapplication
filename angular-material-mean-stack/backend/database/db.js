@@ -1,3 +1,3 @@
 module.exports = {
-    db: 'mongodb://localhost:27017/automobile'	
+    db: 'mongodb+srv://purekorea:node1234@cluster0.jcomwxz.mongodb.net/automobile'	
   };
