@@ -88,7 +88,7 @@ export class EditCarComponent implements OnInit {
     return this.carForm.controls[controlName].hasError(errorName);
   };
   /* Update book */
-  updateStudentForm() {
+  updateCarForm() {
     console.log(this.carForm.value);
     var id = this.actRoute.snapshot.paramMap.get('id');
     if (window.confirm('Are you sure you want to update?')) {

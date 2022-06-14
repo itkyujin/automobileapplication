@@ -23,7 +23,7 @@ import {
   providedIn: 'root',
 })
 export class ApiService {
-  endpoint: string = 'http://localhost:8000/api';
+  endpoint: string = 'http://localhost:8002/api';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
   constructor(private http: HttpClient) {}
 
