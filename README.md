@@ -16,3 +16,8 @@ Add-Car (New)
 
 ![image](https://user-images.githubusercontent.com/104597854/173714061-8e7fae41-256d-4502-8dfb-3c8d55fd1422.png)
 
+Added Tesla
+
+![image](https://user-images.githubusercontent.com/104597854/173714354-80dd357e-a606-4bdd-bfa8-77f6e54077b8.png)
+
+
