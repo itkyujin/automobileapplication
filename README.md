@@ -32,3 +32,10 @@ Added Tesla
 #Database Connection
 ![image](https://user-images.githubusercontent.com/104597854/173714998-eb90e8ae-5861-46fc-a5a9-94ab47dded1b.png)
 ![image](https://user-images.githubusercontent.com/104597854/173715149-d8961454-d9d8-426e-bcc6-6a029d080d75.png)
+
+![image](https://user-images.githubusercontent.com/104597854/173715281-dbe8ee75-6e00-478a-badc-75e61eef49a2.png)
+
+# Delete Car
+
+![image](https://user-images.githubusercontent.com/104597854/173715378-435fdb79-0cf2-4b8c-a07f-312f2cef42ae.png)
+
