@@ -1,5 +1,5 @@
 <div class="title-group">
-  <h1 class="mat-h1">Add New Vehicle</h1>
+  <h1 class="mat-h1">Add Vehicle</h1>
   <mat-divider fxFlex="1 0"></mat-divider>
 </div>
 
@@ -26,10 +26,14 @@
         </mat-form-field>
 
         <!-- Section -->
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="Car trim" formControlName="car_trim">
-          <mat-error *ngIf="handleError('car_trim', 'required')">
-            You must provide a<strong>car trim</strong>
+        <mat-form-field>
+          <mat-label>Color</mat-label>
+          <mat-select [(value)]="selected" formControlName="color">
+            <mat-option [value]="sectioinArray" *ngFor="let sectioinArray of SectioinArray">{{sectioinArray}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="handleError('color', 'required')">
+            Color is required
           </mat-error>
         </mat-form-field>
       </div>
@@ -39,11 +43,20 @@
     <mat-card>
       <div class="controlers-wrapper">
         <!-- Add subjects -->
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="Car mileage" formControlName="car_mileage">
-          <mat-error *ngIf="handleError('car_mileage', 'required')">
-            You must provide a<strong>car mileage</strong>
-          </mat-error>
+        <mat-form-field class="multiple-items">
+          <mat-chip-list #chipList>
+            <mat-chip *ngFor="let subjectArray of subjectArray" [selectable]="selectable" [removable]="removable"
+              (removed)="remove(subjectArray)">
+              {{subjectArray.name}}
+              <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+            </mat-chip>
+            <input placeholder="Add subject" [matChipInputFor]="chipList"
+              [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+              (matChipInputTokenEnd)="add($event)">
+          </mat-chip-list>
+          <i class="material-icons tooltip-info" matTooltip="Enter subject name and press enter to add subjects">
+            info
+          </i>
         </mat-form-field>
 
         <!-- Date of birth -->
@@ -53,9 +66,18 @@
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
           <mat-error *ngIf="handleError('car_year', 'required')">
-            Car Year is required
+            Car year is required
           </mat-error>
         </mat-form-field>
+
+        <!-- Gender -->
+        <div class="misc-bottom-padding">
+          <mat-label>Car Trim:</mat-label>
+          <mat-radio-group aria-label="Select an option" formControlName="car_trim">
+            <mat-radio-button value="Male">V6 Engine</mat-radio-button>
+            <mat-radio-button value="Female">V8 Engine</mat-radio-button>
+          </mat-radio-group>
+        </div>
       </div>
     </mat-card>
 

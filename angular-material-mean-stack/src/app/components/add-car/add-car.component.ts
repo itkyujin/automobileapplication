@@ -26,7 +26,7 @@ export class AddCarComponent implements OnInit {
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   carForm: FormGroup;
   subjectArray: Subject[] = [];
-  SectioinArray: any = ['A', 'B', 'C', 'D', 'E'];
+  SectioinArray: any = ['RED', 'BLUE', 'GREEN', 'YELLOW', 'WHITE'];
 
   constructor(
     public fb: FormBuilder,
@@ -43,9 +43,10 @@ export class AddCarComponent implements OnInit {
     this.carForm = this.fb.group({
       car_make: ['', [Validators.required]],
       car_model: ['', [Validators.required]],
-      car_trim: ['', [Validators.required]],
-      car_color: ['', [Validators.required]],
-      car_year: ['', [Validators.required]]
+      color: ['', [Validators.required]],
+      subjects: [this.subjectArray],
+      car_year: ['', [Validators.required]],
+      car_trim: ['Male']
     })
   }
 

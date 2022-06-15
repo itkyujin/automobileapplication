@@ -7,38 +7,34 @@ import { MatTableDataSource } from '@angular/material/table';
 @Component({
   selector: 'app-cars-list',
   templateUrl: './cars-list.component.html',
-  styleUrls: ['./cars-list.component.css'],
+  styleUrls: ['./cars-list.component.css']
 })
+
 export class CarsListComponent implements OnInit {
   CarData: any = [];
   dataSource: MatTableDataSource<Car>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  displayedColumns: string[] = [
-    '_id',
-    'car_make',
-    'car_model',
-    'car_trim',
-    'action',
-  ];
+  displayedColumns: string[] = ['_id', 'car_make', 'car_model', 'color', 'action'];
+
   constructor(private carApi: ApiService) {
-    this.carApi.GetCars().subscribe((data) => {
+    this.carApi.GetCars().subscribe(data => {
       this.CarData = data;
       this.dataSource = new MatTableDataSource<Car>(this.CarData);
       setTimeout(() => {
         this.dataSource.paginator = this.paginator;
       }, 0);
-    });
+    })    
   }
-  ngOnInit() {}
-  deleteCar(index: number, e) {
-    if (window.confirm('Are you sure')) {
+
+  ngOnInit() { }
+
+  deleteCar(index: number, e: { _id: any; }){
+    if(window.confirm('Are you sure')) {
       const data = this.dataSource.data;
-      data.splice(
-        this.paginator.pageIndex * this.paginator.pageSize + index,
-        1
-      );
+      data.splice((this.paginator.pageIndex * this.paginator.pageSize) + index, 1);
       this.dataSource.data = data;
-      this.carApi.DeleteCar(e._id).subscribe();
+      this.carApi.DeleteCar(e._id).subscribe()
     }
   }
+
 }
